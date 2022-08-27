@@ -52,7 +52,7 @@
           </div>
           <h3 class="text-lg font-medium text-white">Contact information</h3>
           <p class="mt-6 text-base text-indigo-50 max-w-3xl">
-            Please reach out if you'd like to speak to us. 
+            Please reach out if you'd like to speak to us.
           </p>
           <dl class="mt-8 space-y-6">
             <dt><span class="sr-only">Phone number</span></dt>
@@ -95,7 +95,8 @@
           <ul role="list" class="mt-8 flex space-x-12">
             <!--LINKEDIN ICON -->
             <li>
-              <a class="text-indigo-200 hover:text-indigo-100" href="https://www.linkedin.com/in/robert-garner-6439b09/" target="blank">
+              <a class="text-indigo-200 hover:text-indigo-100" href="https://www.linkedin.com/in/robert-garner-6439b09/"
+                target="blank">
                 <span class="sr-only">LinkedIn</span>
                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"
                   class="w-6 h-6" aria-hidden="true">
@@ -324,11 +325,91 @@
               </div>
             </fieldset>
             <div class="sm:col-span-2 sm:flex sm:justify-end">
-              <button type="submit"
+              <button type="submit" [disabled]="loading"
                 class="mt-2 w-full inline-flex items-center justify-center px-6 py-3 border border-transparent rounded-md shadow-sm text-base font-medium text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 sm:w-auto">
                 Submit
               </button>
             </div>
+            <div *ngIf="messageSuccessMessage">
+              <!--SUCCESS MESSAGE START -->
+              <div class="rounded-md bg-green-50 p-4">
+                <div class="flex">
+                  <div class="flex-shrink-0">
+                    <!-- Heroicon name: mini/check-circle -->
+                    <svg class="h-5 w-5 text-green-400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"
+                      fill="currentColor" aria-hidden="true">
+                      <path fill-rule="evenodd"
+                        d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.857-9.809a.75.75 0 00-1.214-.882l-3.483 4.79-1.88-1.88a.75.75 0 10-1.06 1.061l2.5 2.5a.75.75 0 001.137-.089l4-5.5z"
+                        clip-rule="evenodd" />
+                    </svg>
+                  </div>
+                  <div class="ml-3">
+                    <p class="text-sm font-medium text-green-800">Message successfully sent</p>
+                  </div>
+                  <div class="ml-auto pl-3">
+                    <div class="-mx-1.5 -my-1.5">
+                      <button type="button" (click)="dismissMessage()"
+                        class="inline-flex bg-green-50 rounded-md p-1.5 text-green-500 hover:bg-green-100 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-green-50 focus:ring-green-600">
+                        <span class="sr-only">Dismiss</span>
+                        <!-- Heroicon name: mini/x-mark -->
+                        <svg class="h-5 w-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor"
+                          aria-hidden="true">
+                          <path
+                            d="M6.28 5.22a.75.75 0 00-1.06 1.06L8.94 10l-3.72 3.72a.75.75 0 101.06 1.06L10 11.06l3.72 3.72a.75.75 0 101.06-1.06L11.06 10l3.72-3.72a.75.75 0 00-1.06-1.06L10 8.94 6.28 5.22z" />
+                        </svg>
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <!--SUCCESS MESSAGE END -->
+
+
+
+            </div>
+            <!--FAILURE MESSAGE START -->
+            <div *ngIf="messageFailureMessage">
+              <div class="rounded-md bg-red-50 p-4">
+                <div class="flex">
+                  <div class="flex-shrink-0">
+                    <!-- Heroicon name: mini/x-circle -->
+                    <svg class="h-5 w-5 text-red-400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"
+                      fill="currentColor" aria-hidden="true">
+                      <path fill-rule="evenodd"
+                        d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.28 7.22a.75.75 0 00-1.06 1.06L8.94 10l-1.72 1.72a.75.75 0 101.06 1.06L10 11.06l1.72 1.72a.75.75 0 101.06-1.06L11.06 10l1.72-1.72a.75.75 0 00-1.06-1.06L10 8.94 8.28 7.22z"
+                        clip-rule="evenodd" />
+                    </svg>
+
+
+
+
+
+
+                  </div>
+                  <div class="ml-3">
+                    <p class="text-sm font-medium text-red-800">Message failed to send</p>
+                  </div>
+                  <div class="ml-auto pl-3">
+                    <div class="-mx-1.5 -my-1.5">
+                      <button type="button" (click)="dismissMessage()"
+                        class="inline-flex bg-red-50 rounded-md p-1.5 text-red-500 hover:bg-red-100 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-red-50 focus:ring-red-600">
+                        <span class="sr-only">Dismiss</span>
+                        <!-- Heroicon name: mini/x-mark -->
+                        <svg class="h-5 w-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor"
+                          aria-hidden="true">
+                          <path
+                            d="M6.28 5.22a.75.75 0 00-1.06 1.06L8.94 10l-3.72 3.72a.75.75 0 101.06 1.06L10 11.06l3.72 3.72a.75.75 0 101.06-1.06L11.06 10l3.72-3.72a.75.75 0 00-1.06-1.06L10 8.94 6.28 5.22z" />
+                        </svg>
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!--FAILURE MESSAGE END -->
+
+
+
           </form>
         </div>
       </div>

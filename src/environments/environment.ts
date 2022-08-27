@@ -3,8 +3,14 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false
+  production: false,
+  appVersion: 'recruitmentDesignWebsite',
+  //USERDATA_KEY: 'JaNdRgUkXp2s5v8y',
+  isMockEnabled: false,
+  apiUrl: 'https://localhost:7057/api',
+  mockapiUrl: 'api'
 };
+
 
 /*
  * For easier debugging in development mode, you can import the following file

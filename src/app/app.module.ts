@@ -50,6 +50,7 @@ import { SocialMediaComponent } from './components/features/social-media/social-
     AppRoutingModule, 
     BrowserModule,
     FormsModule,
+    HttpClientModule,
     ReactiveFormsModule
   ],
   providers: [],
